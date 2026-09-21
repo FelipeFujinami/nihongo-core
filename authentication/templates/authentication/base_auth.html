@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
+    <title>{% block title %}Nihon Kai{% endblock %}</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eef1f5;
+            font-family: 'Segoe UI', 'Noto Sans JP', Arial, sans-serif;
+        }
+
+        .login-card {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 560px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .form-panel {
+            flex: 1;
+            background: linear-gradient(160deg, #2e9bff 0%, #1373e6 100%);
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            order: 2;
+        }
+
+        .form-panel h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .title-jp {
+            text-align: center;
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 0.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-panel label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            opacity: 0.9;
+        }
+
+        .form-panel input {
+            width: 100%;
+            padding: 0.6rem 1.1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-panel input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .form-options a {
+            color: white;
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        .form-panel button {
+            padding: 0.9rem 3rem;
+            border: none;
+            border-radius: 30px;
+            background-color: #2ecc8f;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-wrapper {
+            text-align: center;
+        }
+        .password-wrapper {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+
+        .password-wrapper input {
+            margin-bottom: 0;
+            padding-right: 3rem;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            right: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .form-panel button:hover {
+            background-color: #26b37e;
+        }
+
+        .form-panel select {
+            width: 100%;
+            padding: 0.6rem 1.1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            outline: none;
+            background: white;
+            color: #333;
+            appearance: none; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23666'%3E%3Cpath d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.1rem center;
+            cursor: pointer;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .checkbox-row input[type="checkbox"] {
+            width: auto;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-row a {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .signup-link {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .signup-link:hover {
+            opacity: 0.8;
+        }
+
+        .alert-danger {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        .art-panel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 2rem;
+            order: 1;
+        }
+
+        .art-panel svg,
+        .art-panel img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+        }
+
+        @media (max-width: 800px) {
+            .login-card {
+                flex-direction: column;
+                max-width: 420px;
+            }
+            .art-panel {
+                display: none;
+            }
+            .form-panel {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        #jlpt-level-wrapper {
+            display: none;
+        }
+
+        #has-certificate-wrapper {
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="form-panel">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class="art-panel">
+            <img src="{% static 'authentication/img/NihonKai-art.png' %}" alt="Nihon Kai">
+        </div>
+    </div>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
