@@ -22,8 +22,7 @@
   <summary><b>Como executar o projeto localmente:</b></summary>
   <br>
   1. Clone este repositório:
-   ```bash
-   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+    git clone https://github.com/FelipeFujinami/nihongo-core.git
   
   2. Acesse a pasta do projeto:
      cd nome-da-pasta
