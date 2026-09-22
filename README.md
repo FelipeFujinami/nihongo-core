@@ -1,4 +1,4 @@
-# (EM DESENVOLVIMENTO)
+# NihonKai (EM DESENVOLVIMENTO)
 <div align="center">
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -15,5 +15,33 @@
 <details>
   <summary><b>Sobre o projeto:</b></summary>
   <br>
-  Projeto de PFC para o curso de Engenharia de Software: Desenvolvimento de uma plataforma de apoio ao aprendizado autônomo da Língua Japonesa.
+  Desenvolvimento de uma plataforma de apoio ao aprendizado autônomo da Língua Japonesa.
+</details>
+
+<details>
+  <summary><b>Como executar o projeto localmente:</b></summary>
+  <br>
+  1. Clone este repositório:
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+  
+  2. Acesse a pasta do projeto:
+     cd nome-da-pasta
+
+  3. Crie e ative um ambiente virtual:
+     python -m venv venv
+     source venv/bin/activate  # No Linux/Mac
+     venv\Scripts\activate     # No Windows
+     
+  4. Instale as dependências:
+     pip install -r requirements.txt
+
+  5. Configure as variáveis de ambiente (crie um arquivo .env na raiz do projeto e insira as credenciais do banco de dados).
+  6. Aplique as migrações do banco de dados:
+     python manage.py migrate
+
+  7. Inicie o servidor local:
+     python manage.py runserver
+
+ ##Como realizar o deploy no Render
 </details>
